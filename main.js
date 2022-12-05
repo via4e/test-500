@@ -1,23 +1,40 @@
+import Alien from './src/object'
 import './style.css'
+console.log('500 aliens')
 
-console.log('500')
-
-// resize listener
-window.onresize = resize;
-resize(); // init
-
-function resize() {
-  let fieldHeight = window.innerHeight
-  let fieldWidth = window.innerWidth
-  console.log('height:', fieldHeight, 'width:', fieldWidth)
-}
-
-// Canvas init
+// Init
 const canvas = document.getElementById('playground');
 const ctx = canvas.getContext('2d');
 
-ctx.fillStyle = "rgb(200,0,0)";
-ctx.fillRect(10, 10, 55, 50);
+let fieldHeight, fieldWidth
+resize()
+window.onresize = resize;
 
-ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-ctx.fillRect(30, 30, 55, 50);
+const aliens =[]
+const aliensArmy = 500 // numbers of aliens
+
+for (let i = 0; i < aliensArmy; i++) {
+  aliens[i] = new Alien(fieldHeight, fieldWidth)
+}
+
+function resize() {
+  fieldHeight = window.innerHeight
+  fieldWidth = window.innerWidth
+  canvas.height = fieldHeight;
+  canvas.width = fieldWidth;
+}
+
+function loop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  for (let i = 0; i < aliensArmy; i++) {
+    aliens[i].update()
+    aliens[i].draw(ctx)    
+  }
+
+  setTimeout(loop, 0)
+  //requestAnimationFrame(loop)
+}
+
+loop()
+
