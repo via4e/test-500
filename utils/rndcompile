@@ -1,0 +1,5 @@
+emcc rnd.c -o rnd.mjs \
+      -s EXPORT_ES6=1 
+      -s MODULARIZE=1 
+      -s EXPORT_NAME=randomWASM 
+      -s EXPORTED_FUNCTIONS="[_randomInt, _hi500]"

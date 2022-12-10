@@ -3,14 +3,13 @@
 
 # TODO
 
-1. radius lifecycle
-2. movement strategy as plugin
-3. sprite with png images (alien.png)
-4. sounds
-5. config
-6. background
-7. fps meter
-8. keyboard: pause, change modes
-9. ts + jest
-10. check build locally start
-11. WASM!
+1. movement strategy as plugin
+2. (V) sprite with png images (alien.png)
+3. sounds
+4. config
+5. background
+6. fps meter
+7. keyboard: pause, change modes
+8. ts + jest
+9. check build locally start
+10. WASM!

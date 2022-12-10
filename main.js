@@ -1,6 +1,10 @@
 import Alien from './src/object'
 import './style.css'
-console.log('500 aliens')
+
+import randomWASM from './utils/rnd.mjs';
+const wasm_module = await randomWASM();
+console.log(wasm_module._hi500());
+console.log(wasm_module._randomNP(4));
 
 // Init
 const canvas = document.getElementById('playground');
@@ -34,8 +38,8 @@ function loop() {
     aliens[i].draw(ctx)    
   }
 
-  setTimeout(loop, 0)
-  //requestAnimationFrame(loop)
+  //setTimeout(loop, 0)
+  requestAnimationFrame(loop)
 }
 
 loop()
