@@ -22,6 +22,8 @@ function resize() {
   fieldWidth = window.innerWidth
   canvas.height = fieldHeight;
   canvas.width = fieldWidth;
+  console.log('win h, w', window.innerHeight, window.innerWidth)
+  console.log('canvas', canvas)
 }
 
 function loop() {
@@ -37,4 +39,3 @@ function loop() {
 }
 
 loop()
-

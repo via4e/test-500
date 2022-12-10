@@ -10,7 +10,7 @@
 5. config
 6. background
 7. fps meter
-8. kyeboard: pause, change modes
+8. keyboard: pause, change modes
 9. ts + jest
 10. check build locally start
 11. WASM!
