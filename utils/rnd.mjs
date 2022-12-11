@@ -33,7 +33,7 @@ Module['ready'] = new Promise(function(resolve, reject) {
   readyPromiseResolve = resolve;
   readyPromiseReject = reject;
 });
-["_main","_hi500","_randomNP","_fflush","onRuntimeInitialized"].forEach((prop) => {
+["_main","_hi500","_randomInt","_randomNZP","_fflush","onRuntimeInitialized"].forEach((prop) => {
   if (!Object.getOwnPropertyDescriptor(Module['ready'], prop)) {
     Object.defineProperty(Module['ready'], prop, {
       get: () => abort('You are getting ' + prop + ' on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js'),
@@ -1398,7 +1398,10 @@ var ___wasm_call_ctors = Module["___wasm_call_ctors"] = createExportWrapper("__w
 var _hi500 = Module["_hi500"] = createExportWrapper("hi500");
 
 /** @type {function(...*):?} */
-var _randomNP = Module["_randomNP"] = createExportWrapper("randomNP");
+var _randomInt = Module["_randomInt"] = createExportWrapper("randomInt");
+
+/** @type {function(...*):?} */
+var _randomNZP = Module["_randomNZP"] = createExportWrapper("randomNZP");
 
 /** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");

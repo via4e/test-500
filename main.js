@@ -4,7 +4,10 @@ import './style.css'
 import randomWASM from './utils/rnd.mjs';
 const wasm_module = await randomWASM();
 console.log(wasm_module._hi500());
-console.log(wasm_module._randomNP(4));
+
+for (let i=0; i<20; i++) {
+  console.log(wasm_module._randomInt(5, 75), wasm_module._randomNZP());
+}
 
 // Init
 const canvas = document.getElementById('playground');
@@ -15,7 +18,7 @@ resize()
 window.onresize = resize;
 
 const aliens =[]
-const aliensArmy = 500 // numbers of aliens
+const aliensArmy = 10000 // numbers of aliens
 
 for (let i = 0; i < aliensArmy; i++) {
   aliens[i] = new Alien(fieldHeight, fieldWidth)

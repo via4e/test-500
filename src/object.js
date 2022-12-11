@@ -1,4 +1,6 @@
 import randomInt, { randomNZP, randomNP } from '../utils/random'
+import randomWASM from '../utils/rnd.mjs';
+const wasm_module = await randomWASM();
 
 class alien {
     constructor(maxX, maxY) {
@@ -7,8 +9,8 @@ class alien {
         this.x = randomInt(1,maxX) || 0
         this.y = randomInt(1, maxY) || 0
         //this.traectory = Math.random() < 0.5 ? 'horizontal' : 'vertical'
-        this.traectory = ['horizontal', 'vertical', 'doubtful', 'chaotic', 'chaotic', 'chaotic'][randomInt(0,6)]
-        this.radius = randomInt(1,39)
+        this.traectory = ['horizontal', 'vertical', 'doubtful', 'chaotic'][randomInt(0,4)]
+        this.radius = wasm_module._randomInt(3, 39) //randomInt(1,39)
         this.color = this.randomColor()
 
         this.alienType = (randomInt(0,2))  // 
@@ -64,8 +66,8 @@ class alien {
     }
 
     doubtful() {
-        this.x = this.x - randomNZP() * 3
-        this.y = this.y - randomNZP() * 3
+        this.x = this.x - wasm_module._randomNZP() * 3
+        this.y = this.y - wasm_module._randomNZP() * 3
         if (this.x < 0) this.x = this.maxX
         if (this.x > this.maxX) this.x = 0
         if (this.y < 0) this.y = this.maxY
@@ -76,9 +78,9 @@ class alien {
         if (this.movement) {
             this.movement -= 1
         } else {
-            this.movement = randomInt(47,249)
-            this.deltax = randomInt(0,3) * randomNP()
-            this.deltay = randomInt(0,3) * randomNP()
+            this.movement = wasm_module._randomInt(30, 222)
+            this.deltax = wasm_module._randomInt(0, 3) * randomNP()  //wasm_module._randomNZP()
+            this.deltay = wasm_module._randomInt(0, 3) * randomNP()  // wasm_module._randomNZP()
         }
         this.x = this.x - this.deltax
         this.y = this.y - this.deltay
