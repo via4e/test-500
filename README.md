@@ -1,15 +1,24 @@
-## test-500
+# test-500
 500 moving objects 
+5k resolution for 16:9 ratio is 5120 × 2880
 
-# TODO
+## Start
 
+1. Yarn (install deps)
+2. Yarn dev (start)
+
+
+## Config
+
+Number of objects - change number on main.js, string 17
+
+
+
+## TODO
 1. movement strategy as plugin
-2. (V) sprite with png images (alien.png)
-3. sounds
+2. Perfomance optimize: All object calculates move to WASM module
 4. config
-5. background
-6. fps meter
+6. perfomance meter (fps maybe)
 7. keyboard: pause, change modes
-8. ts + jest
-9. check build locally start
+9. 'yarn build' cors fix
 10. WASM!

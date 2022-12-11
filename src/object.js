@@ -1,4 +1,4 @@
-import randomInt, { randomNZP, randomNP } from '../utils/random'
+import randomInt, { randomNP } from '../utils/random'
 import randomWASM from '../utils/rnd.mjs';
 const wasm_module = await randomWASM();
 
@@ -13,9 +13,13 @@ class alien {
         this.radius = wasm_module._randomInt(3, 39) //randomInt(1,39)
         this.color = this.randomColor()
 
-        this.alienType = (randomInt(0,2))  // 
+        this.alienType = (randomInt(0,4))  // 
         this.alienImage = new Image()
+        this.alienImage2 = new Image()
+        this.alienImage3 = new Image()
         this.alienImage.src = '../assets/alien.png'
+        this.alienImage2.src = '../assets/alien2.png'
+        this.alienImage3.src = '../assets/alien3.png'
 
         // 'chaotic' specific
         this.movement = 0
@@ -44,12 +48,18 @@ class alien {
         switch (this.alienType) {
             case(0):
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+                ctx.arc(this.y, this.x, this.radius, 0, 2 * Math.PI, false);
                 ctx.fillStyle = this.color
                 ctx.fill();
                 break;
             case(1):
-                ctx.drawImage(this.alienImage, this.x, this.y)
+                ctx.drawImage(this.alienImage, this.y, this.x)
+                break;
+            case (2):
+                ctx.drawImage(this.alienImage2, this.y, this.x)
+                break;
+            case (3):
+                ctx.drawImage(this.alienImage3, this.y, this.x)
                 break;
         }
 

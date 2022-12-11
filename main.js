@@ -5,20 +5,18 @@ import randomWASM from './utils/rnd.mjs';
 const wasm_module = await randomWASM();
 console.log(wasm_module._hi500());
 
-for (let i=0; i<20; i++) {
-  console.log(wasm_module._randomInt(5, 75), wasm_module._randomNZP());
-}
-
 // Init
 const canvas = document.getElementById('playground');
 const ctx = canvas.getContext('2d');
 
 let fieldHeight, fieldWidth
 resize()
-window.onresize = resize;
+
+//always 5k, uncomment for change
+//window.onresize = resize;
 
 const aliens =[]
-const aliensArmy = 10000 // numbers of aliens
+const aliensArmy = 1500 // numbers of aliens
 
 for (let i = 0; i < aliensArmy; i++) {
   aliens[i] = new Alien(fieldHeight, fieldWidth)
@@ -29,20 +27,24 @@ function resize() {
   fieldWidth = window.innerWidth
   canvas.height = fieldHeight;
   canvas.width = fieldWidth;
-  console.log('win h, w', window.innerHeight, window.innerWidth)
-  console.log('canvas', canvas)
 }
 
 function loop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  // visual dot with max x,y coords
+  ctx.beginPath();
+  ctx.arc(2160, 3840, 150, 0, 2 * Math.PI, false);
+  ctx.fillStyle = '#ffff00';
+  ctx.fill();
 
   for (let i = 0; i < aliensArmy; i++) {
     aliens[i].update()
     aliens[i].draw(ctx)    
   }
 
-  //setTimeout(loop, 0)
-  requestAnimationFrame(loop)
+  setTimeout(loop, 0)
+  //requestAnimationFrame(loop)
 }
 
 loop()
