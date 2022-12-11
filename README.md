@@ -18,8 +18,8 @@ Number of objects - change number on main.js, string 17
 ## TODO
 1. movement strategy as plugin
 2. Perfomance optimize: All object calculates move to WASM module
+3. Perfomance optimize: try web workers
 4. config
-6. perfomance meter (fps maybe)
-7. keyboard: pause, change modes
-9. 'yarn build' cors fix
-10. WASM!
+5. perfomance meter (fps maybe)
+6. keyboard: pause, change modes
+7. 'yarn build' cors fix
