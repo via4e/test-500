@@ -6,6 +6,7 @@
 
 1. Yarn (install deps)
 2. Yarn dev (start)
+3. Open in browser localhost:5173
 
 
 ## Config
