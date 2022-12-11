@@ -16,7 +16,7 @@ resize()
 //window.onresize = resize;
 
 const aliens =[]
-const aliensArmy = 1500 // numbers of aliens
+const aliensArmy = 500 // numbers of aliens
 
 for (let i = 0; i < aliensArmy; i++) {
   aliens[i] = new Alien(fieldHeight, fieldWidth)
