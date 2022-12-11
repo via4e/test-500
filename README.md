@@ -11,7 +11,7 @@
 
 ## Config
 
-Number of objects - change number on main.js, string 17
+Number of objects - change number on main.js, string 19 (constant aliensArmy)
 
 
 
