@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   width: 3840;
   height: 2160px;
@@ -20,7 +26,7 @@ body {
   top: 50px;
   left: 50px;
   width: 360px;
-  height: 80px;
+  height: 180px;
 
   border-radius: 16px;
 
@@ -33,6 +39,35 @@ body {
   z-index: 111;
 }
 
+input,
+label {
+  cursor: pointer;
+}
+
+input[type="radio"]::before {
+  border: 3px darkmagenta solid;
+  color:red;
+  background: #222222;
+}
+
+#monitoring .radio label{
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+#monitoring .radio {
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+}
+
 #fps {
   color: yellow;
 }
+

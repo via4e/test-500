@@ -4,6 +4,8 @@ const wasm_module = await randomWASM();
 
 class alien {
     constructor(maxX, maxY) {
+        this.calcType = 'js' // 'js' or 'wa', calculate with Javascript or WebAssembly
+
         this.maxX = maxX
         this.maxY = maxY
         this.x = randomInt(1,maxX) || 0
