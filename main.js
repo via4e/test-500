@@ -1,12 +1,18 @@
 import Alien from './src/object'
-//import Fibo from './src/fibo'
+import Fibo from './src/fibo'
 import './src/style.css'
 
-//window.fibo = Fibo
+// config parametres
+const aliensArmy = 110 // numbers of aliens
+const fiboDepth = 1477
 
-import randomWASM from './utils/rnd.mjs';
-const wasm_module = await randomWASM();
-console.log(wasm_module._hi500());
+const fibo = new Fibo(fiboDepth)
+
+import WASM from './utils/rnd.mjs';
+const wasm_module = await WASM();
+
+// Test, write to console from wasm
+console.log(wasm_module._hi500(), 'wasm-fib:', wasm_module._fib(fiboDepth), 'EOF FIB' );
 
 // Init
 const canvas = document.getElementById('playground');
@@ -23,8 +29,6 @@ resize()
 
 // Create aliens army
 const aliens =[]
-const aliensArmy = 11500 // numbers of aliens
-
 for (let i = 0; i < aliensArmy; i++) {
   aliens[i] = new Alien(fieldHeight, fieldWidth)
 }
@@ -46,6 +50,10 @@ function fpsMetr() {
 }
 
 function loop() {
+
+  fibo.getFibo()
+  //wasm_module._fib(fiboDepth)
+
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   counter = counter + 1
   // visual dot with max x,y coords
