@@ -3,8 +3,9 @@ import Fibo from './src/fibo'
 import './src/style.css'
 
 // config parametres
-const aliensArmy = 110 // numbers of aliens
+const aliensArmy = 1000 // numbers of aliens
 const fiboDepth = 1477
+let calcType = js // calculate wa or js
 
 const fibo = new Fibo(fiboDepth)
 
@@ -15,6 +16,8 @@ const wasm_module = await WASM();
 console.log(wasm_module._hi500(), 'wasm-fib:', wasm_module._fib(fiboDepth), 'EOF FIB' );
 
 // Init
+document.getElementById('aliens-number').innerText = '' + aliensArmy
+
 const canvas = document.getElementById('playground');
 const ctx = canvas.getContext('2d');
 const fps = document.getElementById("fps");
@@ -36,6 +39,18 @@ for (let i = 0; i < aliensArmy; i++) {
 // Set timer
 let timer = setInterval(fpsMetr, 1000)
 
+// Set buttons
+let calcTypeBtn = document.getElementById('calc-type')
+const buttons = document.querySelectorAll(".button")
+buttons.forEach((button) => {
+  button.addEventListener("click", buttonClick, false )
+});
+function buttonClick (e) {
+  calcType = e.target.id
+  calcTypeBtn.innerText = e.target.id
+}
+
+
 function resize() {
   fieldHeight = window.innerHeight
   fieldWidth = window.innerWidth
@@ -50,9 +65,7 @@ function fpsMetr() {
 }
 
 function loop() {
-
-  fibo.getFibo()
-  //wasm_module._fib(fiboDepth)
+  calcType ==='js' ? fibo.getFibo() : wasm_module._fib(fiboDepth)
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   counter = counter + 1

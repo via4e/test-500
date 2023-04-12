@@ -12,8 +12,8 @@ body {
 
 #playground {
   position: absolute;
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -26,46 +26,92 @@ body {
   top: 50px;
   left: 50px;
   width: 360px;
-  height: 180px;
+  height: 280px;
+
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.1;
 
   border-radius: 16px;
-
   background-color: rgb(117 190 218 / 0.87);
+  z-index: 111;
+}
+
+#monitoring .block-fps{
+  position: absolute;
+  top:0;
+  width:100%;
+  height:70px;
 
   font-size: 4em;
   font-weight: 600;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: green;
-  z-index: 111;
 }
 
-input,
-label {
-  cursor: pointer;
-}
-
-input[type="radio"]::before {
-  border: 3px darkmagenta solid;
-  color:red;
-  background: #222222;
-}
-
-#monitoring .radio label{
-  font-family: system-ui, sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.1;
-  display: grid;
-  grid-template-columns: 1em auto;
-  gap: 0.5em;
-}
-
-#monitoring .radio {
+#monitoring .block-description{
   position: absolute;
-  bottom: 0;
-  height: 50%;
-  width: 100%;
+  top:70px;
+  width:100%;
+  height:30px;
+
+  font-size: 1.5rem;
+  font-weight: 400;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+
+
+#monitoring .block-calc{
+  position: absolute;
+  top:100px;
+  width:100%;
+  height:20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#monitoring .block-army{
+  position: absolute;
+  top:150px;
+  width:100%;
+  height:20px;
+
+  font-size: 1.5rem;
+  font-weight: 400;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+button {
+  height: 40px;
+  border-radius: 8px;
+
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+#calc-type {
+  background: aquamarine;
+  color: darkmagenta;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+#aliens-number {
+  color: yellow;
+  font-size: 1.5rem;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 
 #fps {
   color: yellow;

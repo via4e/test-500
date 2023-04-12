@@ -8,20 +8,16 @@
   <body>
     <canvas id="playground"></canvas>
     <div id="monitoring">
-      <span>FPS: <span id="fps"></span></span>
-      <div class="radio">
-
-        <label>
-          <input type="radio" id="radio-wa" name="wa" value="wa" />
-          WebAssembly
-        </label>
-
-        <label>
-          <input type="radio" id="radio-js" name="js" value="js" />
-          Javascript
-        </label>
-
+      <div class="block-fps">
+        <span>FPS: <span id="fps"></span></span>
       </div>
+      <div class="block-description">Calculation Type:</div>
+      <div class="block-calc">
+        <button class="button" id="wa">WebAssembly</button>
+        <button class="button" id="js">JavaScript</button>
+        <button id="calc-type">wa</button>
+      </div>
+      <div class="block-army">Number of Aliens:<span id="aliens-number"></span></div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
