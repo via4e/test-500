@@ -20,9 +20,8 @@ FYI: Large values in both cases degrade performance.
 2. Perfomance optimize: All object calculates move to WASM module
 3. Perfomance optimize: try web workers
 4. config
-5. perfomance meter (fps maybe)
-6. keyboard: pause, change modes
-7. 'yarn build' cors fix
+5. keyboard: pause, change modes
+6. 'yarn build' cors fix
 
 ## Emscipten
 
